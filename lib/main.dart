@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:icon_talk/pages/home.dart';
+import 'package:icon_talk/widgets/talk_button.dart';
+
+import 'services/tts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Icon Talk',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -24,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const Home("Icon Talk"),
     );
   }
 }
@@ -49,6 +53,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  final _tts = TTS();
 
   void _incrementCounter() {
     setState(() {
@@ -101,6 +106,17 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
+            ),
+            TextButton(
+              onPressed: () {
+                _tts.speak('Você apertou $_counter vezes.');
+              },
+              child: const Text('Speak'),
+            ),
+            const TalkButton(
+              "sim",
+              Icons.thumb_up_sharp,
+              Colors.green,
             ),
           ],
         ),
