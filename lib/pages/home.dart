@@ -15,7 +15,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const ZonesList(),
+      body: const Padding(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+        child: ZonesList(),
+      ),
+
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   tooltip: 'Increment',
