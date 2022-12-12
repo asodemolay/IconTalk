@@ -26,6 +26,5 @@ class _HomeState extends State<Home> {
       //   child: const Icon(Icons.add),
       // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-    ;
   }
 }
