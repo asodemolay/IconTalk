@@ -3,22 +3,42 @@ import 'dart:async';
 import 'package:flutter_tts/flutter_tts.dart';
 
 class TTS {
-  final _tts = FlutterTts();
+  final _ttsService = FlutterTts();
+  static final _instance = TTS._internal();
 
-  TTS() {
-    _setInitialConfig().then((_) => null);
+  factory TTS() {
+    return _instance;
+  }
+
+  TTS._internal() {
+    _setInitialConfig();
   }
 
   Future<void> _setInitialConfig() async {
-    await _tts.awaitSpeakCompletion(true);
-    await _tts.setLanguage("pt-BR");
-    await _tts.setSpeechRate(0.5);
-    await _tts.setVolume(1.0);
+    await _ttsService.awaitSpeakCompletion(false);
+    await _ttsService.setLanguage("pt-BR");
+    await _ttsService.setSpeechRate(0.5);
+    await _ttsService.setVolume(1.0);
     final voice = {'name': 'pt-br-x-ptd-local', 'locale': 'pt-BR'};
-    await _tts.setVoice(voice);
+    await _ttsService.setVoice(voice);
+    await _ttsService.awaitSynthCompletion(true);
   }
 
   Future<dynamic> speak(String text) async {
-    return await _tts.speak(text);
+    await _ttsService.stop();
+    return await _ttsService.speak(text);
   }
+}
+
+// Singleton using dart factory
+class Singleton {
+  // static variable
+  static final Singleton _instance = Singleton._internal();
+
+// factory constructor
+  factory Singleton() {
+    return _instance;
+  }
+  // private constructor
+  Singleton._internal();
 }

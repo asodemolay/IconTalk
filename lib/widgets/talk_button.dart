@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/tts.dart';
 
 class TalkButton extends StatelessWidget {
-  const TalkButton(
+  TalkButton(
     this.caption,
     this.icon,
     this.iconColor, {
@@ -19,6 +19,7 @@ class TalkButton extends StatelessWidget {
   final double iconSize;
   final IconData icon;
   final Color iconColor;
+  final _tts = TTS();
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,8 @@ class TalkButton extends StatelessWidget {
       child: Card(
         child: InkWell(
           splashColor: Colors.blue,
-          onTap: () {
-            TTS().speak(caption);
+          onTap: () async {
+            await _tts.speak(caption);
           },
           child: SizedBox(
             width: width,

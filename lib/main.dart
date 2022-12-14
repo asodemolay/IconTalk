@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: const Text('Speak'),
             ),
-            const TalkButton(
+            TalkButton(
               "sim",
               Icons.thumb_up_sharp,
               Colors.green,

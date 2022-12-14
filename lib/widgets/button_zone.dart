@@ -19,13 +19,4 @@ Widget buttonZone(List<TalkButton> buttons) {
       }),
     ),
   );
-
-  return GridView.count(
-    shrinkWrap: true,
-    padding: const EdgeInsets.only(top: 15),
-    crossAxisCount: 3,
-    crossAxisSpacing: 10,
-    mainAxisSpacing: 10,
-    children: buttons,
-  );
 }

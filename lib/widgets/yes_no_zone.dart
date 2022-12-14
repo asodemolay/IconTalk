@@ -9,8 +9,8 @@ class YesNoZone extends StatelessWidget {
   Widget build(BuildContext context) {
     return buttonZone(
       [
-        const TalkButton("sim", Icons.thumb_up, Colors.green),
-        const TalkButton("não", Icons.thumb_down, Colors.red),
+        TalkButton("sim", Icons.thumb_up, Colors.green),
+        TalkButton("não", Icons.thumb_down, Colors.red),
       ],
     );
   }
