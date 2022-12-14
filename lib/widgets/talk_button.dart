@@ -9,7 +9,7 @@ class TalkButton extends StatelessWidget {
     this.iconColor, {
     this.width = 110,
     this.height = 150,
-    this.iconSize = 100,
+    this.iconSize = 80,
     Key? key,
   }) : super(key: key);
 

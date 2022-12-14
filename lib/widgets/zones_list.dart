@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:icon_talk/widgets/default_zone.dart';
 import 'package:icon_talk/widgets/yes_no_zone.dart';
 
 class ZonesList extends StatelessWidget {
@@ -14,7 +15,7 @@ class ZonesList extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
             children: const [
-              Text("teste"),
+              DefaultZone(),
             ],
           ),
         ),
